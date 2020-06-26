@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   include GraphqlDevise::Concerns::Model
 
+  has_many :photos
+
   def set_uid
     self.uid = self.email
   end

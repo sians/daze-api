@@ -11,3 +11,6 @@ user2 = User.create(
   email: 'test@test.com',
   password: 'foobar'
 )
+
+
+photo1 = Photo.create(user: sian, mood: 7, description: "A photo I took on the way home from work")
