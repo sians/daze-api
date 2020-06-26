@@ -9,5 +9,6 @@ module Types
     field :title, String, null: true
     field :status, Integer, null: true
     field :mood, Integer, null: true
+    field :photo, String, null: true
   end
 end

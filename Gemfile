@@ -9,6 +9,12 @@ gem 'graphql_devise'
 # Use graphql as query language
 gem 'graphql', "~> 1.9"
 
+# Use CarrierWave to handle image uploads
+gem 'carrierwave', '~> 2.0'
+
+# Use Fog for CarrierWave & S3 communiques
+gem 'fog-aws'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use postgresql as the database for Active Record
@@ -34,6 +40,7 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry', '~> 0.12.2'
 end
 
 group :development do
