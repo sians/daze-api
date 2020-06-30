@@ -17,7 +17,7 @@ module Mutations
       type Types::PhotoType
 
       def resolve(**attributes)
-        user = context[:current_user]
+        user = context[:current_resource]
         new_attributes = attributes.merge(user: user)
 
         photo = Photo.create!(new_attributes)

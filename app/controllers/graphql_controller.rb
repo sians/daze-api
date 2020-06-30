@@ -8,11 +8,22 @@ class GraphqlController < ApplicationController
     variables = ensure_hash(params[:variables])
     query = params[:query]
     operation_name = params[:operationName]
-    context = {
-      current_user: current_user,
-    }
+
+    # if defined?(current_user)
+    #   context = { current_user: current_user }
+    # end
+
+    # if defined?(current_user)
+    #   result = DazeApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+    # else
+    #   result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
+    # end
     # binding.pry
-    result = DazeApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
+
+
+    result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
+
+
     render json: result
   rescue => e
     raise e unless Rails.env.development?

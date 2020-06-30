@@ -4,7 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 # Use graphql_devise gem to handle graphql authentication
-gem 'graphql_devise'
+# gem 'graphql_devise'
+gem 'graphql_devise', path: "/Users/sianstone/code/sians/clones/graphql_devise/graphql_devise"
 
 # Use graphql as query language
 gem 'graphql', "~> 1.9"
