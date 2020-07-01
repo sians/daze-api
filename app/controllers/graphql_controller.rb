@@ -13,16 +13,27 @@ class GraphqlController < ApplicationController
     #   context = { current_user: current_user }
     # end
 
+
+    # if request.headers[:uid]
+    #   user = User.find_by(uid: request.headers[:uid])
+    #   expiry = user.tokens[request.headers[:client]]['expiry']
+    #   if user &&
+    #     user.tokens.key?(request.headers[:client]) &&
+    #     expiry > DateTime.now.to_time.to_i
+    #       current_user = user
+    #   end
+    # end
+
     # if defined?(current_user)
+    #   # binding.pry
+    #   context = { current_user: current_user }
     #   result = DazeApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
     # else
     #   result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
     # end
-    # binding.pry
-
-
+    binding.pry
     result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
-
+    # result = DazeApiSchema.execute(query, variables: variables, context: context, operation_name: operation_name)
 
     render json: result
   rescue => e
