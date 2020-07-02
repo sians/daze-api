@@ -20,7 +20,6 @@ module Types
     field :me, Types::UserType, null: false,
       description: "Returns the current user"
     def me
-      # binding.pry
       context[:current_resource] if context[:current_resource].class == User
     end
 
