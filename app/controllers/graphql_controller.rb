@@ -9,7 +9,14 @@ class GraphqlController < ApplicationController
     query = params[:query]
     operation_name = params[:operationName]
 
-    result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
+    # result = DazeApiSchema.execute(query, variables: variables, context: graphql_context(:user), operation_name: operation_name)
+
+    if params[:_json]
+      queries = params[:_json].map do |param|
+        {
+          query:
+        }
+      end
 
     render json: result
   rescue => e
